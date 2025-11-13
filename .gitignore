@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Large data files - raw MRI scans
+raw data/
+raw_data/
+*.nifti.img
+*.nifti.hdr
+*.nii
+*.nii.gz
+*.tar.gz
+
+# Processed results - these are large and can be regenerated
+results/skull_stripped/
+results/hippocampus_segmentation/
+results/visualizations/*.html
+
+# Keep only summary images and CSV results
+!results/visualizations/*.png
+!results/volumes/*.csv
+
+# Temporary files
+*.log
+*.tmp
+.cache/
+
+# Excel temp files
+~$*.xlsx
+~$*.xls
+
+# Python test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment variables
+.env
+.env.local

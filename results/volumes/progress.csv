@@ -1,0 +1,234 @@
+scan_name,patient_id,session,status,left_cm3,right_cm3,total_cm3,voxel_size_mm,error
+OAS2_0001_MR1,0001,1,success,2.04625,2.63875,4.6850000000000005,"(1.0, 1.0, 1.25)",
+OAS2_0001_MR2,0001,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0002_MR1,0002,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0002_MR2,0002,2,success,2.03125,2.3937500000000003,4.425000000000001,"(1.0, 1.0, 1.25)",
+OAS2_0002_MR3,0002,3,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0004_MR1,0004,1,success,2.345,2.2375000000000003,4.5825000000000005,"(1.0, 1.0, 1.25)",
+OAS2_0004_MR2,0004,2,success,2.64875,1.98875,4.6375,"(1.0, 1.0, 1.25)",
+OAS2_0005_MR1,0005,1,success,2.42,3.0275,5.4475,"(1.0, 1.0, 1.25)",
+OAS2_0005_MR2,0005,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0005_MR3,0005,3,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0007_MR1,0007,1,success,2.5100000000000002,1.85125,4.36125,"(1.0, 1.0, 1.25)",
+OAS2_0007_MR3,0007,3,success,2.25625,1.6725,3.92875,"(1.0, 1.0, 1.25)",
+OAS2_0007_MR4,0007,4,success,1.96,0.6325000000000001,2.5925000000000002,"(1.0, 1.0, 1.25)",
+OAS2_0008_MR1,0008,1,success,1.7375,2.37,4.1075,"(1.0, 1.0, 1.25)",
+OAS2_0008_MR2,0008,2,success,1.65375,2.3537500000000002,4.0075,"(1.0, 1.0, 1.25)",
+OAS2_0009_MR1,0009,1,success,1.45875,1.82,3.27875,"(1.0, 1.0, 1.25)",
+OAS2_0009_MR2,0009,2,success,2.47,2.54,5.01,"(1.0, 1.0, 1.25)",
+OAS2_0010_MR1,0010,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0010_MR2,0010,2,success,2.46375,2.70375,5.1675,"(1.0, 1.0, 1.25)",
+OAS2_0012_MR1,0012,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0012_MR2,0012,2,success,2.2975,2.1125,4.41,"(1.0, 1.0, 1.25)",
+OAS2_0012_MR3,0012,3,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0013_MR1,0013,1,success,2.495,2.2275,4.7225,"(1.0, 1.0, 1.25)",
+OAS2_0013_MR2,0013,2,success,1.8425,1.935,3.7775,"(1.0, 1.0, 1.25)",
+OAS2_0013_MR3,0013,3,success,2.12,2.16,4.28,"(1.0, 1.0, 1.25)",
+OAS2_0014_MR1,0014,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0014_MR2,0014,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0016_MR1,0016,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0016_MR2,0016,2,success,0.42375,2.78375,3.2075,"(1.0, 1.0, 1.25)",
+OAS2_0017_MR1,0017,1,success,1.2925,0.3675,1.66,"(1.0, 1.0, 1.25)",
+OAS2_0017_MR3,0017,3,success,3.08,0.77625,3.85625,"(1.0, 1.0, 1.25)",
+OAS2_0017_MR4,0017,4,success,0.32,1.0125,1.3325,"(1.0, 1.0, 1.25)",
+OAS2_0017_MR5,0017,5,success,0.23500000000000001,2.43,2.665,"(1.0, 1.0, 1.25)",
+OAS2_0018_MR1,0018,1,success,2.0725000000000002,1.30875,3.3812500000000005,"(1.0, 1.0, 1.25)",
+OAS2_0018_MR3,0018,3,success,2.19875,1.8062500000000001,4.005,"(1.0, 1.0, 1.25)",
+OAS2_0018_MR4,0018,4,success,1.36125,1.1712500000000001,2.5325,"(1.0, 1.0, 1.25)",
+OAS2_0020_MR1,0020,1,success,2.13875,2.62875,4.7675,"(1.0, 1.0, 1.25)",
+OAS2_0020_MR2,0020,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0020_MR3,0020,3,success,1.4000000000000001,0.7925,2.1925,"(1.0, 1.0, 1.25)",
+OAS2_0021_MR1,0021,1,success,2.245,0.43125,2.67625,"(1.0, 1.0, 1.25)",
+OAS2_0021_MR2,0021,2,success,0.71375,0.495,1.20875,"(1.0, 1.0, 1.25)",
+OAS2_0022_MR1,0022,1,success,2.27375,2.5375,4.81125,"(1.0, 1.0, 1.25)",
+OAS2_0022_MR2,0022,2,success,2.275,2.46375,4.73875,"(1.0, 1.0, 1.25)",
+OAS2_0023_MR1,0023,1,success,1.1612500000000001,0.76375,1.9250000000000003,"(1.0, 1.0, 1.25)",
+OAS2_0023_MR2,0023,2,success,1.35,1.33875,2.68875,"(1.0, 1.0, 1.25)",
+OAS2_0026_MR1,0026,1,success,1.4737500000000001,2.5300000000000002,4.00375,"(1.0, 1.0, 1.25)",
+OAS2_0026_MR2,0026,2,success,1.23,2.34875,3.57875,"(1.0, 1.0, 1.25)",
+OAS2_0027_MR1,0027,1,success,2.1237500000000002,2.4562500000000003,4.58,"(1.0, 1.0, 1.25)",
+OAS2_0027_MR2,0027,2,success,3.095,2.76625,5.86125,"(1.0, 1.0, 1.25)",
+OAS2_0027_MR3,0027,3,success,2.4275,2.61125,5.03875,"(1.0, 1.0, 1.25)",
+OAS2_0027_MR4,0027,4,success,2.4987500000000002,2.6075,5.10625,"(1.0, 1.0, 1.25)",
+OAS2_0028_MR1,0028,1,success,2.90375,2.63,5.5337499999999995,"(1.0, 1.0, 1.25)",
+OAS2_0028_MR2,0028,2,success,2.9825,2.82625,5.80875,"(1.0, 1.0, 1.25)",
+OAS2_0029_MR1,0029,1,success,2.995,2.0275,5.0225,"(1.0, 1.0, 1.25)",
+OAS2_0029_MR2,0029,2,success,2.60125,2.3312500000000003,4.9325,"(1.0, 1.0, 1.25)",
+OAS2_0030_MR1,0030,1,success,2.68375,2.5500000000000003,5.233750000000001,"(1.0, 1.0, 1.25)",
+OAS2_0030_MR2,0030,2,success,2.545,2.205,4.75,"(1.0, 1.0, 1.25)",
+OAS2_0031_MR1,0031,1,success,0.6175,1.55875,2.17625,"(1.0, 1.0, 1.25)",
+OAS2_0031_MR2,0031,2,success,2.39625,1.3325,3.7287500000000002,"(1.0, 1.0, 1.25)",
+OAS2_0031_MR3,0031,3,success,0.12125,2.3025,2.42375,"(1.0, 1.0, 1.25)",
+OAS2_0032_MR1,0032,1,success,1.9675,2.34625,4.31375,"(1.0, 1.0, 1.25)",
+OAS2_0032_MR2,0032,2,success,1.91375,2.22625,4.14,"(1.0, 1.0, 1.25)",
+OAS2_0034_MR1,0034,1,success,2.15375,2.08375,4.237500000000001,"(1.0, 1.0, 1.25)",
+OAS2_0034_MR2,0034,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0034_MR3,0034,3,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0034_MR4,0034,4,success,0.2625,1.73625,1.99875,"(1.0, 1.0, 1.25)",
+OAS2_0035_MR1,0035,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0035_MR2,0035,2,success,2.2475,2.015,4.2625,"(1.0, 1.0, 1.25)",
+OAS2_0036_MR1,0036,1,success,1.69375,2.52625,4.220000000000001,"(1.0, 1.0, 1.25)",
+OAS2_0036_MR3,0036,3,success,2.1625,2.35875,4.52125,"(1.0, 1.0, 1.25)",
+OAS2_0036_MR4,0036,4,success,1.95875,2.25625,4.215,"(1.0, 1.0, 1.25)",
+OAS2_0036_MR5,0036,5,success,2.24125,1.92,4.16125,"(1.0, 1.0, 1.25)",
+OAS2_0037_MR1,0037,1,success,2.73875,2.81375,5.5525,"(1.0, 1.0, 1.25)",
+OAS2_0037_MR2,0037,2,success,2.6237500000000002,2.74625,5.37,"(1.0, 1.0, 1.25)",
+OAS2_0037_MR3,0037,3,success,2.19125,2.65625,4.8475,"(1.0, 1.0, 1.25)",
+OAS2_0037_MR4,0037,4,success,2.36875,2.64875,5.0175,"(1.0, 1.0, 1.25)",
+OAS2_0039_MR1,0039,1,success,1.79375,1.5225,3.31625,"(1.0, 1.0, 1.25)",
+OAS2_0039_MR2,0039,2,success,1.90375,1.6812500000000001,3.585,"(1.0, 1.0, 1.25)",
+OAS2_0040_MR1,0040,1,success,2.2475,1.3687500000000001,3.61625,"(1.0, 1.0, 1.25)",
+OAS2_0040_MR2,0040,2,success,2.39,0.295,2.685,"(1.0, 1.0, 1.25)",
+OAS2_0040_MR3,0040,3,success,2.36125,0.18375,2.545,"(1.0, 1.0, 1.25)",
+OAS2_0041_MR1,0041,1,success,2.67375,2.30875,4.9825,"(1.0, 1.0, 1.25)",
+OAS2_0041_MR2,0041,2,success,2.59375,2.34125,4.9350000000000005,"(1.0, 1.0, 1.25)",
+OAS2_0041_MR3,0041,3,success,2.375,2.3025,4.6775,"(1.0, 1.0, 1.25)",
+OAS2_0042_MR1,0042,1,success,3.75375,3.63,7.38375,"(1.0, 1.0, 1.25)",
+OAS2_0042_MR2,0042,2,success,3.5225,3.3937500000000003,6.91625,"(1.0, 1.0, 1.25)",
+OAS2_0043_MR1,0043,1,success,2.37625,2.12,4.49625,"(1.0, 1.0, 1.25)",
+OAS2_0043_MR2,0043,2,success,2.22,1.86625,4.08625,"(1.0, 1.0, 1.25)",
+OAS2_0044_MR1,0044,1,success,0.6687500000000001,1.69,2.35875,"(1.0, 1.0, 1.25)",
+OAS2_0044_MR2,0044,2,success,0.15625,1.79125,1.9475,"(1.0, 1.0, 1.25)",
+OAS2_0044_MR3,0044,3,success,1.855,0.05625,1.91125,"(1.0, 1.0, 1.25)",
+OAS2_0045_MR1,0045,1,success,2.42875,2.50125,4.93,"(1.0, 1.0, 1.25)",
+OAS2_0045_MR2,0045,2,success,2.4775,2.74375,5.2212499999999995,"(1.0, 1.0, 1.25)",
+OAS2_0046_MR1,0046,1,success,2.68875,3.23,5.91875,"(1.0, 1.0, 1.25)",
+OAS2_0046_MR2,0046,2,success,2.90625,2.37,5.27625,"(1.0, 1.0, 1.25)",
+OAS2_0047_MR1,0047,1,success,2.60125,2.53875,5.14,"(1.0, 1.0, 1.25)",
+OAS2_0047_MR2,0047,2,success,2.015,2.45375,4.46875,"(1.0, 1.0, 1.25)",
+OAS2_0048_MR1,0048,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0048_MR2,0048,2,success,0.715,3.8275,4.5425,"(1.0, 1.0, 1.25)",
+OAS2_0048_MR3,0048,3,success,1.17,3.74375,4.91375,"(1.0, 1.0, 1.25)",
+OAS2_0048_MR4,0048,4,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0048_MR5,0048,5,success,0.42,3.71625,4.13625,"(1.0, 1.0, 1.25)",
+OAS2_0049_MR1,0049,1,success,1.5475,2.30125,3.84875,"(1.0, 1.0, 1.25)",
+OAS2_0049_MR2,0049,2,success,2.59,2.7725,5.3625,"(1.0, 1.0, 1.25)",
+OAS2_0049_MR3,0049,3,success,1.925,2.1225,4.0475,"(1.0, 1.0, 1.25)",
+OAS2_0050_MR1,0050,1,success,2.8312500000000003,2.66875,5.5,"(1.0, 1.0, 1.25)",
+OAS2_0050_MR2,0050,2,success,2.86,0.81,3.67,"(1.0, 1.0, 1.25)",
+OAS2_0051_MR1,0051,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0051_MR2,0051,2,success,2.36,1.185,3.545,"(1.0, 1.0, 1.25)",
+OAS2_0051_MR3,0051,3,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0052_MR1,0052,1,success,3.18125,2.84,6.02125,"(1.0, 1.0, 1.25)",
+OAS2_0052_MR2,0052,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0053_MR1,0053,1,success,1.32125,0.5025000000000001,1.82375,"(1.0, 1.0, 1.25)",
+OAS2_0053_MR2,0053,2,success,2.19125,2.40125,4.5925,"(1.0, 1.0, 1.25)",
+OAS2_0054_MR1,0054,1,success,2.11375,2.2575,4.37125,"(1.0, 1.0, 1.25)",
+OAS2_0054_MR2,0054,2,success,1.94875,2.03875,3.9875,"(1.0, 1.0, 1.25)",
+OAS2_0055_MR1,0055,1,success,2.105,2.3675,4.4725,"(1.0, 1.0, 1.25)",
+OAS2_0055_MR2,0055,2,success,2.48375,2.52875,5.0125,"(1.0, 1.0, 1.25)",
+OAS2_0056_MR1,0056,1,success,2.34125,2.4975,4.83875,"(1.0, 1.0, 1.25)",
+OAS2_0056_MR2,0056,2,success,2.13625,2.3825,4.51875,"(1.0, 1.0, 1.25)",
+OAS2_0057_MR1,0057,1,success,2.645,2.87125,5.516249999999999,"(1.0, 1.0, 1.25)",
+OAS2_0057_MR2,0057,2,success,2.59,3.04875,5.63875,"(1.0, 1.0, 1.25)",
+OAS2_0057_MR3,0057,3,success,2.3675,2.8025,5.17,"(1.0, 1.0, 1.25)",
+OAS2_0058_MR1,0058,1,success,2.0575,1.925,3.9825,"(1.0, 1.0, 1.25)",
+OAS2_0058_MR2,0058,2,success,1.975,2.0075,3.9825,"(1.0, 1.0, 1.25)",
+OAS2_0058_MR3,0058,3,success,2.03875,2.12125,4.16,"(1.0, 1.0, 1.25)",
+OAS2_0060_MR1,0060,1,success,2.77,3.05625,5.82625,"(1.0, 1.0, 1.25)",
+OAS2_0060_MR2,0060,2,success,2.61125,2.5187500000000003,5.130000000000001,"(1.0, 1.0, 1.25)",
+OAS2_0061_MR1,0061,1,success,3.3312500000000003,2.67875,6.01,"(1.0, 1.0, 1.25)",
+OAS2_0061_MR2,0061,2,success,3.2925,2.90625,6.19875,"(1.0, 1.0, 1.25)",
+OAS2_0061_MR3,0061,3,success,2.9362500000000002,2.7725,5.70875,"(1.0, 1.0, 1.25)",
+OAS2_0062_MR1,0062,1,success,2.5225,2.87125,5.39375,"(1.0, 1.0, 1.25)",
+OAS2_0062_MR2,0062,2,success,2.9362500000000002,2.6175,5.553750000000001,"(1.0, 1.0, 1.25)",
+OAS2_0062_MR3,0062,3,success,2.8075,2.76375,5.57125,"(1.0, 1.0, 1.25)",
+OAS2_0063_MR1,0063,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0063_MR2,0063,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0064_MR1,0064,1,success,2.165,2.4025,4.5675,"(1.0, 1.0, 1.25)",
+OAS2_0064_MR2,0064,2,success,1.79375,2.12875,3.9225000000000003,"(1.0, 1.0, 1.25)",
+OAS2_0064_MR3,0064,3,success,0.6175,2.28125,2.89875,"(1.0, 1.0, 1.25)",
+OAS2_0066_MR1,0066,1,success,3.4825,3.82875,7.311249999999999,"(1.0, 1.0, 1.25)",
+OAS2_0066_MR2,0066,2,success,3.5225,3.2675,6.79,"(1.0, 1.0, 1.25)",
+OAS2_0067_MR1,0067,1,success,1.87625,0.71625,2.5925000000000002,"(1.0, 1.0, 1.25)",
+OAS2_0067_MR2,0067,2,success,1.6187500000000001,2.24,3.8587500000000006,"(1.0, 1.0, 1.25)",
+OAS2_0067_MR3,0067,3,success,1.80125,2.37625,4.1775,"(1.0, 1.0, 1.25)",
+OAS2_0067_MR4,0067,4,success,1.75875,2.1075,3.86625,"(1.0, 1.0, 1.25)",
+OAS2_0068_MR1,0068,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0068_MR2,0068,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0069_MR1,0069,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0069_MR2,0069,2,success,2.3275,2.57,4.8975,"(1.0, 1.0, 1.25)",
+OAS2_0070_MR1,0070,1,success,0.18125,2.8000000000000003,2.98125,"(1.0, 1.0, 1.25)",
+OAS2_0070_MR2,0070,2,success,2.82625,3.5825,6.4087499999999995,"(1.0, 1.0, 1.25)",
+OAS2_0070_MR3,0070,3,success,3.04875,2.72,5.768750000000001,"(1.0, 1.0, 1.25)",
+OAS2_0070_MR4,0070,4,success,2.94375,1.63375,4.577500000000001,"(1.0, 1.0, 1.25)",
+OAS2_0070_MR5,0070,5,success,2.91,1.25875,4.16875,"(1.0, 1.0, 1.25)",
+OAS2_0071_MR1,0071,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0071_MR2,0071,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0073_MR1,0073,1,success,2.195,2.66,4.855,"(1.0, 1.0, 1.25)",
+OAS2_0073_MR2,0073,2,success,2.915,2.93125,5.8462499999999995,"(1.0, 1.0, 1.25)",
+OAS2_0073_MR3,0073,3,success,2.57375,2.5725000000000002,5.14625,"(1.0, 1.0, 1.25)",
+OAS2_0073_MR4,0073,4,success,2.61875,2.74625,5.365,"(1.0, 1.0, 1.25)",
+OAS2_0073_MR5,0073,5,success,2.65125,2.755,5.40625,"(1.0, 1.0, 1.25)",
+OAS2_0075_MR1,0075,1,success,1.8800000000000001,2.16125,4.04125,"(1.0, 1.0, 1.25)",
+OAS2_0075_MR2,0075,2,success,1.99625,2.05125,4.0475,"(1.0, 1.0, 1.25)",
+OAS2_0076_MR1,0076,1,success,3.16125,3.1975000000000002,6.358750000000001,"(1.0, 1.0, 1.25)",
+OAS2_0076_MR2,0076,2,success,2.75375,3.06375,5.817500000000001,"(1.0, 1.0, 1.25)",
+OAS2_0076_MR3,0076,3,success,2.80375,3.165,5.96875,"(1.0, 1.0, 1.25)",
+OAS2_0077_MR1,0077,1,success,3.09,3.32625,6.41625,"(1.0, 1.0, 1.25)",
+OAS2_0077_MR2,0077,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0078_MR1,0078,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0078_MR2,0078,2,success,0.2225,0.70375,0.92625,"(1.0, 1.0, 1.25)",
+OAS2_0078_MR3,0078,3,success,0.11625,1.83375,1.95,"(1.0, 1.0, 1.25)",
+OAS2_0079_MR1,0079,1,success,2.8825,2.19125,5.07375,"(1.0, 1.0, 1.25)",
+OAS2_0079_MR2,0079,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0079_MR3,0079,3,success,2.26125,1.30875,3.5700000000000003,"(1.0, 1.0, 1.25)",
+OAS2_0080_MR1,0080,1,success,1.94875,2.5375,4.48625,"(1.0, 1.0, 1.25)",
+OAS2_0080_MR2,0080,2,success,2.08375,2.47,4.553750000000001,"(1.0, 1.0, 1.25)",
+OAS2_0080_MR3,0080,3,success,1.645,1.035,2.6799999999999997,"(1.0, 1.0, 1.25)",
+OAS2_0081_MR1,0081,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0081_MR2,0081,2,success,0.21625,2.5412500000000002,2.7575000000000003,"(1.0, 1.0, 1.25)",
+OAS2_0085_MR1,0085,1,success,2.365,2.50375,4.86875,"(1.0, 1.0, 1.25)",
+OAS2_0085_MR2,0085,2,success,2.49,2.43375,4.92375,"(1.0, 1.0, 1.25)",
+OAS2_0086_MR1,0086,1,success,2.5675,2.85125,5.418749999999999,"(1.0, 1.0, 1.25)",
+OAS2_0086_MR2,0086,2,success,2.7325,2.755,5.4875,"(1.0, 1.0, 1.25)",
+OAS2_0087_MR1,0087,1,success,1.50875,0.265,1.7737500000000002,"(1.0, 1.0, 1.25)",
+OAS2_0087_MR2,0087,2,success,1.60625,0.33375,1.94,"(1.0, 1.0, 1.25)",
+OAS2_0088_MR1,0088,1,success,1.8425,2.05125,3.89375,"(1.0, 1.0, 1.25)",
+OAS2_0088_MR2,0088,2,success,1.26375,1.6925000000000001,2.95625,"(1.0, 1.0, 1.25)",
+OAS2_0089_MR1,0089,1,success,0.24125,1.92875,2.17,"(1.0, 1.0, 1.25)",
+OAS2_0089_MR3,0089,3,success,0.985,0.32625,1.31125,"(1.0, 1.0, 1.25)",
+OAS2_0090_MR1,0090,1,success,2.88125,2.8675,5.74875,"(1.0, 1.0, 1.25)",
+OAS2_0090_MR2,0090,2,success,3.3875,2.97625,6.36375,"(1.0, 1.0, 1.25)",
+OAS2_0090_MR3,0090,3,success,2.9625,2.64875,5.61125,"(1.0, 1.0, 1.25)",
+OAS2_0091_MR1,0091,1,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0091_MR2,0091,2,success,2.64125,2.39625,5.0375,"(1.0, 1.0, 1.25)",
+OAS2_0092_MR1,0092,1,success,1.58375,0.29375,1.8775,"(1.0, 1.0, 1.25)",
+OAS2_0092_MR2,0092,2,failed,,,,,"D:\a\ANTsPy\ANTsPy\itksource\Modules\Core\Common\src\itkDataObject.cxx:367:
+Requested region is (at least partially) outside the largest possible region."
+OAS2_0094_MR1,0094,1,success,2.61,1.58125,4.19125,"(1.0, 1.0, 1.25)",
+OAS2_0094_MR2,0094,2,success,2.565,2.395,4.96,"(1.0, 1.0, 1.25)",
+OAS2_0095_MR1,0095,1,success,2.4325,2.5825,5.015000000000001,"(1.0, 1.0, 1.25)",
+OAS2_0095_MR2,0095,2,success,2.53125,3.0175,5.54875,"(1.0, 1.0, 1.25)",
