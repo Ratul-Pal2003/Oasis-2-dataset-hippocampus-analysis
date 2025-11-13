@@ -617,6 +617,116 @@ The strong correlations with CDR and MMSE (p < 0.001) validate that hippocampal 
 
 ---
 
+## ROC Curve & AUC Analysis
+
+Beyond correlation analysis, the pipeline now evaluates hippocampal volume as a **binary classifier** for dementia diagnosis using ROC (Receiver Operating Characteristic) curve analysis.
+
+### What is ROC/AUC?
+
+**ROC Curve**: Plots the True Positive Rate (Sensitivity) vs False Positive Rate (1-Specificity) at various classification thresholds.
+
+**AUC (Area Under the Curve)**: Single metric summarizing classifier performance:
+- **AUC = 0.5**: Random guessing (no predictive value)
+- **AUC = 0.6-0.7**: Poor discrimination
+- **AUC = 0.7-0.8**: Acceptable discrimination
+- **AUC = 0.8-0.9**: Excellent discrimination
+- **AUC = 1.0**: Perfect classifier
+
+### Analysis Results
+
+The notebook generates a comprehensive 4-panel visualization (`roc_auc_analysis.png`):
+
+#### **Panel 1: ROC Curve**
+Shows the trade-off between sensitivity and specificity at different volume thresholds:
+- **Blue curve**: Actual ROC curve for hippocampal volume
+- **Gray dashed line**: Random classifier baseline (AUC = 0.50)
+- **Red dot**: Optimal threshold that maximizes sensitivity + specificity
+- **Yellow box**: Sensitivity and specificity at optimal threshold
+
+**Typical Result**: AUC ≈ 0.69 (poor to acceptable discrimination)
+
+**Interpretation**: While hippocampal volume correlates with dementia, it alone cannot perfectly separate demented from nondemented patients due to overlap in distributions.
+
+#### **Panel 2: Confusion Matrix**
+Shows classification performance at the optimal threshold:
+- **True Negatives (TN)**: Correctly identified nondemented patients
+- **False Positives (FP)**: Nondemented patients incorrectly labeled as demented
+- **False Negatives (FN)**: Demented patients incorrectly labeled as nondemented
+- **True Positives (TP)**: Correctly identified demented patients
+
+**Metrics Displayed**:
+- **Accuracy**: Overall correctness = (TP + TN) / Total
+- **Precision**: Of predicted demented, % actually demented = TP / (TP + FP)
+- **Recall (Sensitivity)**: Of actual demented, % correctly identified = TP / (TP + FN)
+
+**Typical Result**: ~72% accuracy, ~64% precision, ~58% recall
+
+#### **Panel 3: Volume Distribution Overlap**
+Overlapping histograms explaining why perfect classification is impossible:
+- **Green bars**: Nondemented patients (mean ≈ 4.7 cm³)
+- **Red bars**: Demented patients (mean ≈ 3.9 cm³)
+- **Overlap region**: Where distributions intersect, causing misclassifications
+
+**Key Insight**: The substantial overlap between groups (shown by overlapping bars) explains why AUC is not perfect. Patients with volumes in the 3.5-5.0 cm³ range are difficult to classify based on volume alone.
+
+#### **Panel 4: Threshold Optimization**
+Shows how sensitivity (blue) and specificity (red) change across all possible thresholds:
+- **Blue curve**: Sensitivity (True Positive Rate) - decreases as threshold increases
+- **Red curve**: Specificity (True Negative Rate) - increases as threshold increases
+- **Black dashed line**: Optimal threshold that balances both metrics
+- **Blue/Red dots**: Sensitivity and specificity at optimal threshold
+
+**Optimal Threshold**: Typically around 4.16 cm³
+- Volumes below this → Classified as "Demented"
+- Volumes above this → Classified as "Nondemented"
+
+### Clinical Implications
+
+**Why is AUC not higher?**
+1. **Biological variability**: Healthy aging also causes hippocampal atrophy
+2. **Individual differences**: Baseline hippocampal size varies significantly across people
+3. **Disease heterogeneity**: Not all dementia patients show equal hippocampal atrophy
+4. **Multifactorial disease**: Alzheimer's affects multiple brain regions, not just hippocampus
+
+**Clinical takeaway**: Hippocampal volume is a **useful biomarker** that correlates with disease progression (as shown by statistical tests), but **should not be used in isolation** for diagnosis. It is most valuable when:
+- Combined with other biomarkers (e.g., cortical thickness, ventricular volume)
+- Used for longitudinal tracking of individual patients
+- Integrated with clinical assessments (CDR, MMSE) and other diagnostic tools
+
+### Classification Performance Metrics
+
+The analysis also calculates standard classification metrics at the optimal threshold:
+
+```
+Accuracy:   ~71.6% - Overall correctness of predictions
+Precision:  ~64.0% - Of predicted demented, how many are actually demented
+Recall:     ~58.2% - Of actual demented patients, how many are correctly identified
+F1-Score:   ~60.9% - Harmonic mean of precision and recall
+Specificity:~81.1% - Of nondemented patients, how many are correctly identified
+```
+
+**Confusion Matrix Example** (at threshold ≈ 4.16 cm³):
+```
+                    Predicted: Nondemented    Predicted: Demented
+Actual: Nondemented         77                      18
+Actual: Demented            28                      39
+```
+
+### How to Interpret the Results
+
+1. **Statistical Significance ≠ Perfect Classification**: The strong correlations (p < 0.001) prove hippocampal volume *relates* to dementia, but ROC analysis shows it's not sufficient for *diagnosis* alone.
+
+2. **Threshold Selection Matters**: Moving the threshold changes the trade-off:
+   - Lower threshold (e.g., 3.5 cm³): Higher sensitivity but more false positives
+   - Higher threshold (e.g., 4.5 cm³): Higher specificity but more false negatives
+
+3. **Research vs Clinical Use**: The biomarker excels at:
+   - ✅ Group-level comparisons (research studies)
+   - ✅ Tracking disease progression over time (longitudinal monitoring)
+   - ❌ Single-time-point diagnosis (too much overlap between groups)
+
+---
+
 ## References
 
 - **OASIS-2 Dataset**: Marcus et al., "Open Access Series of Imaging Studies (OASIS): Longitudinal MRI Data in Nondemented and Demented Older Adults", *Journal of Cognitive Neuroscience*, 2010

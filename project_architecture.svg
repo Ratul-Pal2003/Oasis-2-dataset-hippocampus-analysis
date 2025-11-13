@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 2200" width="1400" height="2200">
+  <defs>
+    <style>
+      .title { font: bold 28px sans-serif; fill: #1a1a1a; }
+      .subtitle { font: bold 18px sans-serif; fill: #2c3e50; }
+      .label { font: 14px sans-serif; fill: #2c3e50; }
+      .small-label { font: 12px sans-serif; fill: #555; }
+      .data-box { fill: #e8f4f8; stroke: #3498db; stroke-width: 2; }
+      .process-box { fill: #d5f4e6; stroke: #27ae60; stroke-width: 2; }
+      .model-box { fill: #ffeaa7; stroke: #fdcb6e; stroke-width: 2; }
+      .output-box { fill: #f8d7da; stroke: #e74c3c; stroke-width: 2; }
+      .viz-box { fill: #e8daef; stroke: #9b59b6; stroke-width: 2; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .dashed-arrow { stroke: #95a5a6; stroke-width: 2; fill: none; stroke-dasharray: 5,5; marker-end: url(#arrowhead-gray); }
+      .section-box { fill: none; stroke: #bdc3c7; stroke-width: 2; stroke-dasharray: 10,5; }
+      .legend-box { fill: white; stroke: #7f8c8d; stroke-width: 1; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#95a5a6" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" class="title">Hippocampus Volume Analysis Pipeline Architecture</text>
+  <text x="700" y="65" text-anchor="middle" class="small-label">OASIS-2 Dataset | ANTsPyNet Deep Learning | Alzheimer's Disease Research</text>
+
+  <!-- ===================== INPUT DATA SECTION ===================== -->
+  <rect x="50" y="100" width="600" height="180" class="section-box"/>
+  <text x="350" y="125" text-anchor="middle" class="subtitle">📁 Input Data Layer</text>
+
+  <!-- Raw MRI Data -->
+  <rect x="80" y="145" width="220" height="70" rx="5" class="data-box"/>
+  <text x="190" y="170" text-anchor="middle" class="label">Raw MRI Scans</text>
+  <text x="190" y="188" text-anchor="middle" class="small-label">OASIS-2 Dataset</text>
+  <text x="190" y="203" text-anchor="middle" class="small-label">209 scans (82 patients)</text>
+
+  <!-- Demographics -->
+  <rect x="330" y="145" width="220" height="70" rx="5" class="data-box"/>
+  <text x="440" y="170" text-anchor="middle" class="label">Demographics Data</text>
+  <text x="440" y="188" text-anchor="middle" class="small-label">OASIS_demographic.xlsx</text>
+  <text x="440" y="203" text-anchor="middle" class="small-label">CDR, MMSE, Age, Group</text>
+
+  <!-- ===================== PREPROCESSING SECTION ===================== -->
+  <rect x="50" y="310" width="600" height="330" class="section-box"/>
+  <text x="350" y="335" text-anchor="middle" class="subtitle">⚙️ Preprocessing Pipeline</text>
+
+  <!-- Scan Discovery -->
+  <rect x="80" y="355" width="220" height="60" rx="5" class="process-box"/>
+  <text x="190" y="380" text-anchor="middle" class="label">1. Scan Discovery</text>
+  <text x="190" y="398" text-anchor="middle" class="small-label">find_all_scans()</text>
+
+  <!-- Skull Stripping -->
+  <rect x="80" y="445" width="220" height="75" rx="5" class="process-box"/>
+  <text x="190" y="470" text-anchor="middle" class="label">2. Skull Stripping</text>
+  <text x="190" y="488" text-anchor="middle" class="small-label">antspynet.brain_extraction()</text>
+  <text x="190" y="503" text-anchor="middle" class="small-label">~30-60 sec/scan</text>
+
+  <!-- ANTsPyNet Model -->
+  <rect x="330" y="445" width="220" height="75" rx="5" class="model-box"/>
+  <text x="440" y="470" text-anchor="middle" class="label">🧠 Deep Learning Model</text>
+  <text x="440" y="488" text-anchor="middle" class="small-label">Brain Extraction CNN</text>
+  <text x="440" y="503" text-anchor="middle" class="small-label">Trained on T1-weighted MRI</text>
+
+  <!-- Hippocampus Segmentation -->
+  <rect x="80" y="550" width="220" height="75" rx="5" class="process-box"/>
+  <text x="190" y="575" text-anchor="middle" class="label">3. Hippocampus Segmentation</text>
+  <text x="190" y="593" text-anchor="middle" class="small-label">antspynet.hippmapp3r_segmentation()</text>
+  <text x="190" y="608" text-anchor="middle" class="small-label">~1-2 min/scan</text>
+
+  <!-- HippMapp3r Model -->
+  <rect x="330" y="550" width="220" height="75" rx="5" class="model-box"/>
+  <text x="440" y="575" text-anchor="middle" class="label">🗺️ HippMapp3r Model</text>
+  <text x="440" y="593" text-anchor="middle" class="small-label">State-of-the-art CNN</text>
+  <text x="440" y="608" text-anchor="middle" class="small-label">Left/Right Hippocampus</text>
+
+  <!-- Arrows for preprocessing -->
+  <path d="M 190 215 L 190 355" class="arrow"/>
+  <path d="M 190 415 L 190 445" class="arrow"/>
+  <path d="M 300 482 L 330 482" class="arrow"/>
+  <path d="M 190 520 L 190 550" class="arrow"/>
+  <path d="M 300 587 L 330 587" class="arrow"/>
+
+  <!-- ===================== VOLUME CALCULATION SECTION ===================== -->
+  <rect x="50" y="670" width="600" height="140" class="section-box"/>
+  <text x="350" y="695" text-anchor="middle" class="subtitle">📐 Volume Calculation</text>
+
+  <!-- Volume Calculation -->
+  <rect x="130" y="715" width="440" height="75" rx="5" class="process-box"/>
+  <text x="350" y="740" text-anchor="middle" class="label">4. Volume Measurement</text>
+  <text x="350" y="758" text-anchor="middle" class="small-label">voxel_volume = (x_spacing × y_spacing × z_spacing) / 1000</text>
+  <text x="350" y="773" text-anchor="middle" class="small-label">left_vol = count(voxels == 1) × voxel_vol | right_vol = count(voxels == 2) × voxel_vol</text>
+
+  <!-- Arrow -->
+  <path d="M 190 625 L 190 715" class="arrow"/>
+
+  <!-- ===================== RESULTS STORAGE SECTION ===================== -->
+  <rect x="50" y="840" width="600" height="200" class="section-box"/>
+  <text x="350" y="865" text-anchor="middle" class="subtitle">💾 Results Storage</text>
+
+  <!-- Processed Images -->
+  <rect x="80" y="885" width="170" height="70" rx="5" class="output-box"/>
+  <text x="165" y="910" text-anchor="middle" class="label">Processed Images</text>
+  <text x="165" y="928" text-anchor="middle" class="small-label">skull_stripped/</text>
+  <text x="165" y="943" text-anchor="middle" class="small-label">hippocampus_segmentation/</text>
+
+  <!-- Volume CSVs -->
+  <rect x="270" y="885" width="260" height="70" rx="5" class="output-box"/>
+  <text x="400" y="910" text-anchor="middle" class="label">Volume Measurements (CSV)</text>
+  <text x="400" y="928" text-anchor="middle" class="small-label">hippocampus_volumes_all.csv</text>
+  <text x="400" y="943" text-anchor="middle" class="small-label">176 successful scans</text>
+
+  <!-- HTML Visualizations -->
+  <rect x="80" y="975" width="170" height="50" rx="5" class="output-box"/>
+  <text x="165" y="995" text-anchor="middle" class="label">3D Visualizations</text>
+  <text x="165" y="1010" text-anchor="middle" class="small-label">3D_*.html files</text>
+
+  <!-- Summary Plots -->
+  <rect x="270" y="975" width="260" height="50" rx="5" class="output-box"/>
+  <text x="400" y="995" text-anchor="middle" class="label">Summary Plots (PNG)</text>
+  <text x="400" y="1010" text-anchor="middle" class="small-label">summary.png | clinical_validation.png</text>
+
+  <!-- Arrow from volume calc to storage -->
+  <path d="M 350 790 L 350 885" class="arrow"/>
+
+  <!-- ===================== ANALYSIS SECTION ===================== -->
+  <rect x="750" y="100" width="600" height="520" class="section-box"/>
+  <text x="1050" y="125" text-anchor="middle" class="subtitle">📊 Statistical Analysis & Validation</text>
+
+  <!-- Merge Demographics -->
+  <rect x="780" y="145" width="240" height="70" rx="5" class="process-box"/>
+  <text x="900" y="170" text-anchor="middle" class="label">Merge Demographics</text>
+  <text x="900" y="188" text-anchor="middle" class="small-label">volumes_with_demographics.csv</text>
+  <text x="900" y="203" text-anchor="middle" class="small-label">176 scans with clinical data</text>
+
+  <!-- Longitudinal Analysis -->
+  <rect x="780" y="245" width="240" height="70" rx="5" class="process-box"/>
+  <text x="900" y="270" text-anchor="middle" class="label">Longitudinal Analysis</text>
+  <text x="900" y="288" text-anchor="middle" class="small-label">Track volume changes</text>
+  <text x="900" y="303" text-anchor="middle" class="small-label">64 patients, multiple sessions</text>
+
+  <!-- Statistical Tests -->
+  <rect x="780" y="345" width="540" height="120" rx="5" class="process-box"/>
+  <text x="1050" y="370" text-anchor="middle" class="label">Statistical Validation Tests</text>
+
+  <text x="810" y="395" class="small-label">• T-test: Demented vs Nondemented (p < 0.001)</text>
+  <text x="810" y="415" class="small-label">• Spearman Correlation: Volume vs CDR (ρ = -0.331, p < 0.001)</text>
+  <text x="810" y="435" class="small-label">• Pearson Correlation: Volume vs MMSE (r = 0.264, p < 0.001)</text>
+  <text x="810" y="455" class="small-label">• ANOVA: Volume across CDR groups (F = 6.675, p = 0.0003)</text>
+
+  <!-- Clinical Findings -->
+  <rect x="780" y="495" width="540" height="110" rx="5" class="viz-box"/>
+  <text x="1050" y="520" text-anchor="middle" class="label">✅ Key Clinical Findings</text>
+  <text x="810" y="545" class="small-label">• Demented patients: 3.92 ± 1.34 cm³ (17% smaller)</text>
+  <text x="810" y="565" class="small-label">• Nondemented patients: 4.72 ± 1.16 cm³</text>
+  <text x="810" y="585" class="small-label">• Cohen's d = 0.639 (large effect size)</text>
+
+  <!-- Arrows from storage to analysis -->
+  <path d="M 530 920 L 650 920 L 650 180 L 780 180" class="arrow"/>
+  <path d="M 440 180 L 650 180 L 650 180 L 780 180" class="dashed-arrow"/>
+  <path d="M 900 215 L 900 245" class="arrow"/>
+  <path d="M 900 315 L 900 345" class="arrow"/>
+  <path d="M 1050 465 L 1050 495" class="arrow"/>
+
+  <!-- ===================== VISUALIZATION SECTION ===================== -->
+  <rect x="750" y="670" width="600" height="370" class="section-box"/>
+  <text x="1050" y="695" text-anchor="middle" class="subtitle">🎨 Visualization Layer</text>
+
+  <!-- 2D Slices -->
+  <rect x="780" y="715" width="240" height="85" rx="5" class="viz-box"/>
+  <text x="900" y="740" text-anchor="middle" class="label">2D Slice Visualization</text>
+  <text x="900" y="758" text-anchor="middle" class="small-label">Matplotlib (6-panel view)</text>
+  <text x="900" y="773" class="small-label">• Axial, Coronal, Sagittal</text>
+  <text x="900" y="788" class="small-label">• Brain + Hippocampus overlay</text>
+
+  <!-- 3D Rendering -->
+  <rect x="1050" y="715" width="270" height="85" rx="5" class="viz-box"/>
+  <text x="1185" y="740" text-anchor="middle" class="label">3D Interactive Rendering</text>
+  <text x="1185" y="758" text-anchor="middle" class="small-label">Plotly (Mesh3D)</text>
+  <text x="1185" y="773" class="small-label">• Marching Cubes algorithm</text>
+  <text x="1185" y="788" class="small-label">• Transparent brain + solid hippocampus</text>
+
+  <!-- Summary Plots -->
+  <rect x="780" y="825" width="540" height="100" rx="5" class="viz-box"/>
+  <text x="1050" y="850" text-anchor="middle" class="label">Statistical Summary Plots</text>
+  <text x="810" y="875" class="small-label">summary.png: Volume distribution, L/R symmetry, longitudinal changes, session trends</text>
+  <text x="810" y="895" class="small-label">clinical_validation.png: Demented vs Nondemented, CDR correlation, MMSE correlation,</text>
+  <text x="810" y="915" class="small-label">Age effects, Longitudinal changes by diagnosis (6 plots each)</text>
+
+  <!-- Interactive Viewer -->
+  <rect x="780" y="950" width="540" height="70" rx="5" class="viz-box"/>
+  <text x="1050" y="975" text-anchor="middle" class="label">visual.py - Interactive Viewer</text>
+  <text x="810" y="995" class="small-label">Text-based menu: Browse scans, search by patient ID, view extremes, random selection</text>
+  <text x="810" y="1010" class="small-label">Displays 2D slices + launches 3D HTML in browser</text>
+
+  <!-- Arrows -->
+  <path d="M 350 1040 L 350 1130 L 1050 1130 L 1050 950" class="dashed-arrow"/>
+
+  <!-- ===================== TECHNOLOGY STACK ===================== -->
+  <rect x="50" y="1100" width="600" height="250" class="legend-box"/>
+  <text x="350" y="1130" text-anchor="middle" class="subtitle">🔧 Technology Stack</text>
+
+  <text x="80" y="1160" class="label">Data Processing:</text>
+  <text x="100" y="1180" class="small-label">• NumPy: Array operations & volume calculation</text>
+  <text x="100" y="1200" class="small-label">• Pandas: Data management & CSV handling</text>
+  <text x="100" y="1220" class="small-label">• Nibabel: NIfTI medical image I/O</text>
+
+  <text x="80" y="1250" class="label">Deep Learning:</text>
+  <text x="100" y="1270" class="small-label">• ANTs/ANTsPy: Medical image registration & processing</text>
+  <text x="100" y="1290" class="small-label">• ANTsPyNet: Pre-trained brain segmentation models</text>
+  <text x="100" y="1310" class="small-label">• TensorFlow/Keras: Deep learning backend</text>
+
+  <text x="370" y="1160" class="label">Visualization:</text>
+  <text x="390" y="1180" class="small-label">• Matplotlib: 2D plots & static visualizations</text>
+  <text x="390" y="1200" class="small-label">• Plotly: Interactive 3D brain rendering</text>
+  <text x="390" y="1220" class="small-label">• scikit-image: Marching cubes surface extraction</text>
+
+  <text x="370" y="1250" class="label">Statistical Analysis:</text>
+  <text x="390" y="1270" class="small-label">• SciPy: t-tests, ANOVA, correlations</text>
+  <text x="390" y="1290" class="small-label">• Seaborn: Enhanced statistical plots</text>
+  <text x="390" y="1310" class="small-label">• OpenPyXL: Excel demographics data</text>
+
+  <!-- ===================== PROJECT FILES ===================== -->
+  <rect x="750" y="1100" width="600" height="250" class="legend-box"/>
+  <text x="1050" y="1130" text-anchor="middle" class="subtitle">📂 Project Structure</text>
+
+  <text x="780" y="1160" class="label">Main Code:</text>
+  <text x="800" y="1180" class="small-label">• final.ipynb: Complete pipeline (Jupyter notebook)</text>
+  <text x="800" y="1200" class="small-label">• visual.py: Interactive scan viewer (Python script)</text>
+
+  <text x="780" y="1230" class="label">Input Data:</text>
+  <text x="800" y="1250" class="small-label">• raw data/Oasis-2/part1_extracted/: MRI scans</text>
+  <text x="800" y="1270" class="small-label">• OASIS_demographic.xlsx: Patient clinical data</text>
+
+  <text x="780" y="1300" class="label">Output Data:</text>
+  <text x="800" y="1320" class="small-label">• results/volumes/*.csv: Volume measurements</text>
+
+  <text x="1090" y="1160" class="label">Documentation:</text>
+  <text x="1110" y="1180" class="small-label">• README.md: Complete project guide</text>
+  <text x="1110" y="1200" class="small-label">• CLAUDE.md: AI assistant instructions</text>
+
+  <text x="1090" y="1230" class="label">Visualizations:</text>
+  <text x="1110" y="1250" class="small-label">• results/visualizations/*.png: Summary plots</text>
+  <text x="1110" y="1270" class="small-label">• results/visualizations/*.html: 3D renders</text>
+
+  <text x="1090" y="1300" class="label">Processed Data:</text>
+  <text x="1110" y="1320" class="small-label">• results/skull_stripped/*.nii.gz: Brain images</text>
+
+  <!-- ===================== PERFORMANCE METRICS ===================== -->
+  <rect x="50" y="1390" width="1300" height="120" class="section-box"/>
+  <text x="700" y="1420" text-anchor="middle" class="subtitle">⚡ Performance & Statistics</text>
+
+  <rect x="80" y="1440" width="300" height="50" rx="5" class="data-box"/>
+  <text x="230" y="1462" text-anchor="middle" class="small-label">Processing Time: ~3-4 hours for 209 scans</text>
+  <text x="230" y="1478" text-anchor="middle" class="small-label">~2-3 min per scan (skull strip + segment)</text>
+
+  <rect x="410" y="1440" width="270" height="50" rx="5" class="data-box"/>
+  <text x="545" y="1462" text-anchor="middle" class="small-label">Success Rate: 84% (176/209 scans)</text>
+  <text x="545" y="1478" text-anchor="middle" class="small-label">33 failed due to ITK errors</text>
+
+  <rect x="710" y="1440" width="300" height="50" rx="5" class="data-box"/>
+  <text x="860" y="1462" text-anchor="middle" class="small-label">Volume Range: 1.94 - 9.88 cm³</text>
+  <text x="860" y="1478" text-anchor="middle" class="small-label">Mean: 4.43 ± 1.26 cm³</text>
+
+  <rect x="1040" y="1440" width="290" height="50" rx="5" class="data-box"/>
+  <text x="1185" y="1462" text-anchor="middle" class="small-label">Longitudinal: 64 patients tracked</text>
+  <text x="1185" y="1478" text-anchor="middle" class="small-label">Mean change: -0.22 cm³ per interval</text>
+
+  <!-- ===================== LEGEND ===================== -->
+  <rect x="50" y="1550" width="1300" height="100" class="legend-box"/>
+  <text x="700" y="1580" text-anchor="middle" class="subtitle">Legend</text>
+
+  <rect x="100" y="1600" width="80" height="30" rx="3" class="data-box"/>
+  <text x="200" y="1620" class="small-label">Input Data</text>
+
+  <rect x="320" y="1600" width="80" height="30" rx="3" class="process-box"/>
+  <text x="420" y="1620" class="small-label">Processing</text>
+
+  <rect x="540" y="1600" width="80" height="30" rx="3" class="model-box"/>
+  <text x="640" y="1620" class="small-label">AI Model</text>
+
+  <rect x="760" y="1600" width="80" height="30" rx="3" class="output-box"/>
+  <text x="860" y="1620" class="small-label">Output/Storage</text>
+
+  <rect x="980" y="1600" width="80" height="30" rx="3" class="viz-box"/>
+  <text x="1080" y="1620" class="small-label">Visualization</text>
+
+  <path d="M 1150 1615 L 1230 1615" class="arrow"/>
+  <text x="1250" y="1620" class="small-label">Data Flow</text>
+
+  <!-- ===================== WORKFLOW SUMMARY ===================== -->
+  <rect x="50" y="1690" width="1300" height="140" class="section-box"/>
+  <text x="700" y="1720" text-anchor="middle" class="subtitle">🔄 Complete Workflow Summary</text>
+
+  <text x="80" y="1755" class="small-label">1. Load 209 raw MRI scans from OASIS-2 dataset → 2. Remove skull/non-brain tissue (ANTsPyNet brain extraction) →</text>
+  <text x="80" y="1775" class="small-label">3. Segment hippocampus using HippMapp3r deep learning model → 4. Calculate left/right hippocampus volumes →</text>
+  <text x="80" y="1795" class="small-label">5. Save processed images and volume measurements to CSV → 6. Merge with clinical demographics (CDR, MMSE) →</text>
+  <text x="80" y="1815" class="small-label">7. Perform statistical validation (t-tests, correlations, ANOVA) → 8. Generate 2D/3D visualizations + summary plots →</text>
+
+  <!-- Footer -->
+  <text x="700" y="2180" text-anchor="middle" class="small-label" style="fill: #7f8c8d;">
+    Generated for: Hippocampus Volume Analysis for Alzheimer's Disease Research | Dataset: OASIS-2 | Model: ANTsPyNet HippMapp3r
+  </text>
+</svg>

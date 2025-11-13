@@ -18,18 +18,21 @@ cv/
 │   ├── Oasis-2/
 │   │   └── part1_extracted/OAS2_RAW_PART1/    # MRI scans (NIfTI format)
 │   │       └── OAS2_####_MR#/RAW/*.nifti.img/hdr
-│   └── objective.txt                           # Project goals
+│   └── objective.txt                           # Project goals (future Streamlit app)
 ├── results/
-│   ├── skull_stripped/                         # Preprocessed brain images
-│   ├── hippocampus_segmentation/               # Segmented hippocampus masks
+│   ├── skull_stripped/                         # Preprocessed brain images (*.nii.gz)
+│   ├── hippocampus_segmentation/               # Segmented hippocampus masks (*.nii.gz)
 │   ├── volumes/                                # CSV files with volume measurements
 │   │   ├── hippocampus_volumes_all.csv        # All scan volumes
 │   │   ├── longitudinal_changes.csv           # Patient volume changes over time
 │   │   └── volumes_with_demographics.csv      # Merged with clinical data
-│   └── visualizations/                         # 2D/3D visualizations
+│   └── visualizations/                         # 2D/3D visualizations (*.png, *.html)
 ├── final.ipynb                                 # Main analysis notebook
+├── final.html                                  # Exported notebook for sharing
 ├── visual.py                                   # Interactive visualization script
+├── project_architecture.svg                    # System architecture diagram
 ├── OASIS_demographic.xlsx                      # Patient demographics & CDR scores
+├── README.md                                   # Detailed project documentation
 └── venv/                                       # Python virtual environment
 ```
 
@@ -63,52 +66,71 @@ pip install antspyx antspynet nibabel matplotlib plotly scikit-image pandas nump
 ### Running the Analysis
 
 **Main Notebook**: `final.ipynb`
-- Open in Jupyter or VS Code
-- Run cells sequentially
+- Open in Jupyter Notebook: `jupyter notebook final.ipynb`
+- Or use VS Code with Jupyter extension
+- Run cells sequentially (Shift+Enter)
 - Processing all 209 scans takes ~3-4 hours
+- Exports results to `final.html` for sharing
 
 **Interactive Visualizer**: `visual.py`
-- Provides dropdown interface to view any scan
-- Shows 2D slices and 3D hippocampus rendering
-- Requires results from `final.ipynb` first
+- Command-line menu interface: `python visual.py`
+- Provides interactive scan selection by patient ID, volume, or scan number
+- Shows 2D slices (axial/coronal/sagittal) and 3D hippocampus rendering
+- Requires results from `final.ipynb` first (reads CSV files from `results/volumes/`)
+- 3D visualizations saved as HTML files in `results/visualizations/`
 
-## Key Pipeline Steps
+## Pipeline Architecture
+
+The analysis pipeline (`final.ipynb`) implements a 5-stage workflow:
 
 ### 1. Scan Discovery
 ```python
-# Finds all MRI scans in nested directory structure
+# Recursively finds all MRI scans in nested OASIS-2 directory
 scans_df = find_all_scans(DATA_DIR)
-# Returns: patient_id, session, scan_name, img_path
+# Returns DataFrame: patient_id, session, scan_name, img_path
 ```
+**Output**: Inventory of 209 scans from 82 patients
 
-### 2. Skull Stripping
+### 2. Skull Stripping (Preprocessing)
 ```python
 brain_extraction = antspynet.brain_extraction(img, modality="t1")
 brain = img * brain_extraction['brain_mask']
 ```
-- Removes skull and non-brain tissue
-- Takes ~30-60 seconds per scan
+- Uses deep learning model to remove skull, scalp, non-brain tissues
+- Generates binary mask: 1=brain, 0=background
+- **Time**: ~30-60 seconds per scan
+- **Output**: Saved to `results/skull_stripped/{scan_name}_brain.nii.gz`
 
 ### 3. Hippocampus Segmentation
 ```python
 hippo_seg = antspynet.hippmapp3r_segmentation(brain)
-# Output values: 0=background, 1=left hippocampus, 2=right hippocampus
+# Output: 0=background, 1=left hippocampus, 2=right hippocampus
 ```
-- Uses deep learning model (HippMapp3r)
-- Takes ~1-2 minutes per scan
-- Expected total volume: 6-10 cm³ (healthy adults)
+- **Model**: HippMapp3r CNN trained on expert-annotated MRI scans
+- **Time**: ~1-2 minutes per scan
+- **Expected volumes**: 6-10 cm³ total (healthy adults), 4-6 cm³ (dementia patients)
+- **Output**: Saved to `results/hippocampus_segmentation/{scan_name}_hippo.nii.gz`
 
 ### 4. Volume Calculation
 ```python
 voxel_vol_cm3 = np.prod(brain.spacing) / 1000  # mm³ to cm³
 left_vol = np.sum(hippo_data == 1) * voxel_vol_cm3
 right_vol = np.sum(hippo_data == 2) * voxel_vol_cm3
+total_vol = left_vol + right_vol
 ```
+- Counts voxels labeled as hippocampus
+- Converts to cm³ using voxel spacing from MRI header
+- **Output**: `results/volumes/hippocampus_volumes_all.csv`
 
-### 5. Longitudinal Analysis
-- Tracks volume changes across multiple sessions per patient
-- Calculates rate of change (cm³ per session interval)
-- Identifies patients with significant atrophy
+### 5. Longitudinal & Statistical Analysis
+- Merges with demographics (`OASIS_demographic.xlsx`)
+- Calculates temporal changes for patients with multiple sessions
+- Performs statistical tests (t-tests, ANOVA, correlations)
+- Generates summary plots and clinical validation figures
+- **Outputs**:
+  - `longitudinal_changes.csv`
+  - `volumes_with_demographics.csv`
+  - `summary.png`, `clinical_validation.png`
 
 ## Data Files
 
@@ -125,36 +147,64 @@ right_vol = np.sum(hippo_data == 2) * voxel_vol_cm3
 - **volumes_with_demographics.csv**: Merged with clinical data
   - Adds: CDR, MMSE, Group (Demented/Nondemented/Converted), Age
 
-## Clinical Validation
+## Statistical Analysis & Clinical Validation
 
-The analysis performs statistical tests to validate biomarker significance:
+The pipeline performs comprehensive statistical tests to validate biomarker significance:
 
-1. **Demented vs Nondemented Comparison**
-   - Independent t-test on hippocampal volumes
-   - Effect size (Cohen's d)
+### 1. Group Comparisons
+**Demented vs Nondemented**
+- Independent t-test on hippocampal volumes
+- Effect size (Cohen's d): measures clinical significance
+- Typical result: p < 0.001 (highly significant)
 
-2. **CDR Correlation**
-   - Spearman correlation with dementia severity
-   - One-way ANOVA across CDR groups (0, 0.5, 1.0, 2.0)
+### 2. Dementia Severity (CDR)
+**Clinical Dementia Rating correlation**
+- Spearman correlation (ordinal data)
+- One-way ANOVA across CDR groups (0, 0.5, 1.0, 2.0)
+- Tests if volume decreases with increasing dementia severity
 
-3. **MMSE Correlation**
-   - Pearson correlation with cognitive function
-   - Higher MMSE = larger hippocampal volume
+### 3. Cognitive Function (MMSE)
+**Mini-Mental State Examination correlation**
+- Pearson correlation (continuous variables)
+- Higher MMSE scores → larger hippocampal volumes
+- Quantifies relationship between brain structure and cognition
 
-**Key Finding**: Hippocampal volume is highly correlated with dementia progression (p < 0.001)
+### 4. Longitudinal Changes
+**Volume changes over time**
+- Percent change calculations for patients with multiple sessions
+- Rate of atrophy (cm³ per session interval)
+- Identifies patients with accelerated neurodegeneration
+
+**Key Finding**: Hippocampal volume is highly correlated with dementia progression (p < 0.001), validating it as an objective biomarker for Alzheimer's disease.
 
 ## Visualization
 
-### 2D Slices
-- Axial, coronal, sagittal views
-- Brain in grayscale + hippocampus overlay in red
-- Automatically finds slices with maximum hippocampus visibility
+### 2D Slice Views
+**Three orthogonal planes:**
+- **Axial**: Horizontal slices (top-down view)
+- **Coronal**: Front-to-back slices (face-on view)
+- **Sagittal**: Side slices (profile view)
 
-### 3D Renderings
-- Brain surface (transparent blue)
-- Hippocampus (solid red)
-- Interactive Plotly visualizations saved as HTML
-- Marching cubes algorithm for surface extraction
+**Display method:**
+- Brain tissue in grayscale
+- Hippocampus overlay in red (semi-transparent)
+- Algorithm automatically finds slices with maximum hippocampus visibility
+
+### 3D Interactive Renderings
+**Surface extraction using marching cubes:**
+- Brain surface: transparent light blue (70th percentile threshold, step_size=3)
+- Hippocampus: solid red (full resolution, step_size=1)
+
+**Output format:**
+- Interactive Plotly HTML files (self-contained, no server required)
+- Rotation, zoom, pan controls built-in
+- Saved to `results/visualizations/3D_{scan_name}.html`
+
+### Summary Plots
+**Generated in notebook:**
+- `summary.png`: 6-panel figure showing volume distributions and longitudinal changes
+- `clinical_validation.png`: 6-panel figure with statistical tests (t-tests, correlations, ANOVA)
+- `roc_auc_analysis.png`: ROC curve for classification performance (if applicable)
 
 ## Important Notes
 
@@ -182,7 +232,9 @@ The analysis performs statistical tests to validate biomarker significance:
 ### Performance
 - **Single scan**: ~2-3 minutes (skull stripping + segmentation)
 - **Full dataset (209 scans)**: 3-4 hours
-- Save progress every 50 scans (`progress.csv`)
+- Pipeline saves progress every 50 scans (`progress.csv`)
+- Memory usage: ~4-6 GB RAM during processing
+- GPU acceleration: Optional (TensorFlow/CUDA compatible)
 
 ## File Paths
 
@@ -193,10 +245,38 @@ BASE_DIR = Path(r"C:\Users\Ratul\Desktop\cv")
 
 When modifying code, update `BASE_DIR` if the project is moved.
 
+## Code Organization
+
+### Main Components
+- **`final.ipynb`**: Complete analysis pipeline from raw MRI to statistical validation
+  - Notebook is self-contained with markdown explanations
+  - Exports to `final.html` for sharing without running code
+
+- **`visual.py`**: Standalone visualization tool with 4 key functions:
+  - `visualize_hippocampus(scan_name)`: Creates 2D slices and 3D rendering for single scan
+  - `display_menu()`: Main interactive menu loop
+  - `browse_scans()`: Paginated scan browsing interface
+  - `search_by_patient()`: Patient-specific scan lookup
+
+### Data Flow
+```
+Raw MRI (.nifti.img/hdr)
+  ↓ [antspynet.brain_extraction]
+Skull-stripped brain (.nii.gz)
+  ↓ [antspynet.hippmapp3r_segmentation]
+Hippocampus segmentation mask (.nii.gz)
+  ↓ [Volume calculation]
+CSV files with measurements
+  ↓ [Merge with demographics]
+Statistical analysis & plots
+  ↓ [visual.py]
+Interactive 3D visualizations
+```
+
 ## Future Directions
 
 From `objective.txt`:
-- Deploy as **Streamlit app** for interactive exploration
-- Allow users to upload their own MRI scans
-- Predict dementia stage from volume measurements
-- Add cortical thickness and ventricular volume analysis
+- Deploy as **Streamlit app** for interactive web-based exploration
+- Allow users to upload their own MRI scans for analysis
+- Build predictive model: volume → dementia stage classification
+- Expand to multi-region analysis (cortical thickness, ventricular volume, amygdala)
